@@ -1,0 +1,70 @@
+#include <BluetoothSerial.h>
+
+BluetoothSerial SerialBT;
+
+// Motor driver pins
+#define IN1 14
+#define IN2 27
+#define IN3 26
+#define IN4 25
+
+void setup() {
+  // Motor pin modes
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  // Start Bluetooth Serial
+  SerialBT.begin("ESP32_RC_BOT"); // Name for pairing
+  Serial.begin(115200);
+  Serial.println("Bluetooth RC Bot Ready");
+}
+
+void loop() {
+  if (SerialBT.available()) {
+    char command = SerialBT.read();
+    Serial.println(command);
+
+    switch (command) {
+      case 'F': // Forward
+        digitalWrite(IN1, HIGH);
+        digitalWrite(IN2, LOW);
+        digitalWrite(IN3, HIGH);
+        digitalWrite(IN4, LOW);
+        break;
+
+      case 'B': // Backward
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, HIGH);
+        digitalWrite(IN3, LOW);
+        digitalWrite(IN4, HIGH);
+        break;
+
+      case 'L': // Left
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, HIGH);
+        digitalWrite(IN3, HIGH);
+        digitalWrite(IN4, LOW);
+        break;
+
+      case 'R': // Right
+        digitalWrite(IN1, HIGH);
+        digitalWrite(IN2, LOW);
+        digitalWrite(IN3, LOW);
+        digitalWrite(IN4, HIGH);
+        break;
+
+      case 'S': // Stop
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, LOW);
+        digitalWrite(IN3, LOW);
+        digitalWrite(IN4, LOW);
+        break;
+
+      default:
+        Serial.println("Invalid Command");
+        break;
+    }
+  }
+}
