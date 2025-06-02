@@ -63,27 +63,45 @@ void loop() {
         break;
 
       case 'L': // Left turn
-        digitalWrite(IN11, LOW);
+ digitalWrite(IN11, LOW);
         digitalWrite(IN12, HIGH);
-        digitalWrite(IN13, LOW);
-        digitalWrite(IN14, HIGH);
-
-        digitalWrite(IN21, HIGH);
-        digitalWrite(IN22, LOW);
+        digitalWrite(IN13, HIGH);
+        digitalWrite(IN14, LOW);
+ digitalWrite(IN21, LOW);
+        digitalWrite(IN22, HIGH);
         digitalWrite(IN23, HIGH);
         digitalWrite(IN24, LOW);
+
+        // digitalWrite(IN11, LOW);
+        // digitalWrite(IN12, HIGH);
+        // digitalWrite(IN13, LOW);
+        // digitalWrite(IN14, HIGH);
+
+        // digitalWrite(IN21, HIGH);
+        // digitalWrite(IN22, LOW);
+        // digitalWrite(IN23, HIGH);
+        // digitalWrite(IN24, LOW);
         break;
 
       case 'R': // Right turn
-        digitalWrite(IN11, HIGH);
+   digitalWrite(IN11, HIGH);
         digitalWrite(IN12, LOW);
-        digitalWrite(IN13, HIGH);
-        digitalWrite(IN14, LOW);
-
-        digitalWrite(IN21, LOW);
-        digitalWrite(IN22, HIGH);
+        digitalWrite(IN13, LOW);
+        digitalWrite(IN14, HIGH);
+   digitalWrite(IN21, HIGH);
+        digitalWrite(IN22, LOW);
         digitalWrite(IN23, LOW);
         digitalWrite(IN24, HIGH);
+
+        // digitalWrite(IN11, HIGH);
+        // digitalWrite(IN12, LOW);
+        // digitalWrite(IN13, HIGH);
+        // digitalWrite(IN14, LOW);
+
+        // digitalWrite(IN21, LOW);
+        // digitalWrite(IN22, HIGH);
+        // digitalWrite(IN23, LOW);
+        // digitalWrite(IN24, HIGH);
         break;
 
       case 'S': // Stop
